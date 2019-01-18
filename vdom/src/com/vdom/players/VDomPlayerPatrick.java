@@ -1325,6 +1325,9 @@ public class VDomPlayerPatrick extends BasePlayer {
 		// here we check each card available for buy
 		// the goal is to find the best VP card, best treasure and best action card
 		for (CardPile pile : game.piles.values()) {
+            if (pile.getCount() == 0) {
+                continue;
+            }
 			Card card = pile.topCard();
 			
 			if (!exact || card.getCost(context) == gold) {
@@ -1725,6 +1728,9 @@ public class VDomPlayerPatrick extends BasePlayer {
 		if (mandatory) {
 			this.log("must choose a card");
 			for (CardPile pile : game.piles.values()) {
+                if (pile.getCount() == 0) {
+                    continue;
+                }
 				Card card = pile.topCard();
 				if (!exact || card.getCost(context) == gold) {
 					if ((game.isValidBuy(context, card, gold)) && !(card.equals(Cards.curse))) {
@@ -1968,7 +1974,7 @@ public class VDomPlayerPatrick extends BasePlayer {
 			if (tcard == null) {
 				return null;
 			}
-			if (tcard.is(Type.Treasure, this)) {
+			if (tcard.is(Type.Treasure, this, context)) {
 				tcard = null;
 			}
 			if (tcard != null) {
@@ -1986,7 +1992,7 @@ public class VDomPlayerPatrick extends BasePlayer {
 		ArrayList<Card> a = new ArrayList<Card>();
 		a.add(card);
 	    if(   card.equals(getCardToDiscard(a, DiscardOption.NonDestructive, context))
-	       && (jackOfAllTrades_nonTreasureToTrash(context) != null || (card.is(Type.Treasure, this)))) {
+	       && (jackOfAllTrades_nonTreasureToTrash(context) != null || (card.is(Type.Treasure, this, context)))) {
 	        return true;
 	    }
 	    return false;
