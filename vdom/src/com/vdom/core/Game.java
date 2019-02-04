@@ -200,6 +200,8 @@ public class Game {
 
     public static void main(String[] args) {
         try {
+            if(args.length == 0)
+                args = com.vdom.launcher.GameCreator.getGameArgs();
             go(args, false);
         } catch (ExitException e) {
             // This is what we would correctly need to do.
