@@ -144,6 +144,23 @@
         </java>
     </target>
 	
+	<target name="run4p-rand3set-excludeNew-landmk" depends="jar">
+        <java classname="${main-class}" fork="true">
+            <classpath>
+                <path location="vdom.jar"/>
+            </classpath>
+            <arg value="-typeRandom"/>
+            <arg value="-debug"/>
+			<arg value="-limitrandom3"/>
+			<arg value="-randomexcludes-Adventures-Empires-Nocturne-Renaissance"/>
+			<arg value="-landmarkcards2"/>
+            <arg value="com.vdom.core.RemotePlayer*Drew"/>
+            <arg value="com.vdom.core.RemotePlayer*Earl"/>
+            <arg value="com.vdom.core.RemotePlayer*Matt"/>
+            <arg value="com.vdom.core.RemotePlayer*Sabrina"/>
+        </java>
+    </target>
+	
 	<target name="run4p-preset" depends="jar">
         <java classname="${main-class}" fork="true">
             <classpath>
@@ -152,6 +169,20 @@
             <arg value="${arg0}"/>
             <arg value="-debug"/>
             <arg value="com.vdom.core.RemotePlayer*Drew"/>
+            <arg value="com.vdom.core.RemotePlayer*Earl"/>
+            <arg value="com.vdom.core.RemotePlayer*Matt"/>
+            <arg value="com.vdom.core.RemotePlayer*Sabrina"/>
+        </java>
+    </target>
+	
+	<target name="run3p-preset" depends="jar">
+        <java classname="${main-class}" fork="true">
+            <classpath>
+                <path location="vdom.jar"/>
+            </classpath>
+            <arg value="${arg0}"/>
+            <arg value="-debug"/>
+            <arg value="com.vdom.players.VDomPlayerDrew"/>
             <arg value="com.vdom.core.RemotePlayer*Earl"/>
             <arg value="com.vdom.core.RemotePlayer*Matt"/>
             <arg value="com.vdom.core.RemotePlayer*Sabrina"/>
