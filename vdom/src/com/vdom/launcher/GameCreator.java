@@ -17,6 +17,7 @@ public class GameCreator
          * The files will be placed in the topmost directory(androminion/vdom/filename)
          */
 
+        // First determine the set of cards to be used
         List<String> args = new ArrayList<String>();
         GameType type = null;
 
@@ -50,11 +51,12 @@ public class GameCreator
             switch (selection - (int) '0')
             {
                 case 1:
-                    new Cards();    // this is necessary, for the static initializer will not add cards to kingdom enums until an instance is created.
+                    new Cards();    // to invoke a call to the static initializer.
+                    /*
                     for(Card card : Expansion.Empires.getKingdomCards())
-                    {
                         System.out.print(card);
-                    }
+                    */
+
                 case 2:
                     // First make the user select an expansion
                     System.out.println("Preset Selection. Enter Expansion:");
