@@ -10,7 +10,7 @@
 
     <target name="compile" description="Compiles the Task">
         <mkdir dir="classes"/>
-        <javac source="1.6" target="1.6" srcdir="src" debug="true"
+        <javac source="1.7" target="1.7" srcdir="src" debug="true"
                 destdir="classes"/>
     </target>
 
@@ -31,7 +31,7 @@
             <classpath>
                 <path location="vdom.jar"/>
             </classpath>
-            <arg value="-cards=Raze-Guide-Amulet-CaravanGuard-Temple-Archive-Recruiter-Spices-Storyteller-Swashbuckler-Mission-Raid"/>
+            <arg value="-cards=Raze-Guide-Amulet-Castles-Temple-Archive-Recruiter-Spices-Storyteller-Swashbuckler-Mission-Raid"/>
             <!--arg value="-debug"/!-->
             <arg value="com.vdom.players.VDomPlayerDrew"/>
             <arg value="com.vdom.players.VDomPlayerEarl"/>
